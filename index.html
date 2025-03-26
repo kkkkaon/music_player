@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>音樂播放器</title>
+    <link rel="stylesheet" href="player1.css">
+</head>
+
+<body>
+    <!-- 用title作為儲存目前歌曲的據點 -->
+    <!-- onended:每首結束後要做的事 -->
+
+    <audio id="audio" src="audio/kappa.mp3" title="FARMHOUSE-kappa" onended="musicEnd()"></audio>
+    <div id="controlPanel">
+        <select name="" id="" onchange="changeMusic(0)">
+            <option value="audio/kappa.mp3">FARMHOUSE-kappa</option>
+            <option value="audio/funkWithMe.mp3">布萊梅-Funk With Me</option>
+            <option value="audio/myRice.mp3">SUSHIBOYS-MY RICE</option>
+            <option value="audio/nothing.mp3">Nothing's Gonna Change My Love For You</option>
+            <option value="audio/rain.mp3">Rhythm Of The Rain</option>
+            <option value="audio/air.mp3">旺福-我當你空氣</option>
+        </select>
+        <div>
+            <button onclick="playMusic()" title="播放/暫停">4</button>
+            <button onclick="stopMusic()" title="停止">&lt;</button>
+            <button onclick="setTime(-10)" title="倒轉">7</button>
+            <button onclick="setTime(10)" title="快轉">8</button>
+            <button onclick="changeMusic(-1)" title="上一首">9</button>
+            <button onclick="changeMusic(1)" title="下一首">:</button>
+            <button onclick="setMute()" title="靜音">V</button>
+            <button onclick="setLoop()" title="單曲循環">q</button>
+            <button onclick="setRandom()" title="隨機播放">s</button>
+            <button onclick="setAllLoop()" title="歌曲循環">`</button>
+        
+        </div>
+        <div>
+            <input type="range" value="40" class="bar" oninput="setVolumeByRange()">
+            <button type="button" onclick="setVolume(-1)" title="-音量" >6</button>
+            <span></span>
+            <button type="button" onclick="setVolume(1)" title="+音量" >5</button>
+        </div>
+        <div>
+            <input type="range" value="0" class="bar" oninput="setProgress()">
+            <span>00:00 / 00:00</span>
+            <p>歡迎使用</p>
+            <p>一般播放</p>
+        </div>
+        <div style="text-align:end">
+            <img src="img/logo.png" alt="logo" style="width:50px; text-align:end">
+        </div>
+    </div>
+    <script src="player1.js"></script>
+</body>
+
+</html>
